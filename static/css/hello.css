@@ -1,0 +1,12 @@
+html{
+    background-color: aquamarine;
+}
+
+header h1{
+    color: hwb(0 0% 0%);
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
