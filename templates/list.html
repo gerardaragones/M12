@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<table border="3">
+    {% for productes in products %}
+
+    <tr>
+        <th> {{ productes["title"] }} </th>
+        <th> {{ productes["description"]}} </th>
+    </tr>
+    {% endfor %}
+</table>
