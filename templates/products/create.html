@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+   <title>Create Product</title>
+   <link href="/static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+   <h3>Nou producte</h3>
+
+   <form action="/products/create" method="POST" enctype="multipart/form-data">
+      <p><label>Titol: <input type="text" name="titol" value="" /></label></p>
+      <p><label>Description: <input type="text" name="description" value="" /></label></p>
+      <p><label>Foto: <input type="file" name="foto" accept="image/*" value="" /></label></p>
+      <p><label>Preu: <input type="number" name="preu" step="0.01" min="0" max="9999999.99" value="" /></label></p>
+      <p><input type="submit" value="CREAR" /></p>
+   </form>
+   <a href="/products/list">&#x3c;&#x3c; Tornar al llistat d'items</a>
+</body>
+
+</html>
