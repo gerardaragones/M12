@@ -70,5 +70,33 @@ def readprod(product_id):
 
 
 
+@app.route('/items/update/<int:product_id>', methods = ['POST', 'GET'])
+def items_update(product_id):
+    if request.method == 'GET':
+        with get_db() as db:
+            res = db.execute("SELECT titol, description, photo, price FROM products WHERE id = ?", (product_id))
+            item = res.fetchone()
+
+        return render_template('items_update.html', product = item)
+
+    else: # POST
+        titol = request.form['titol']
+        desc = request.form['description']
+        preu = request.form['preu']
+        if 'foto' in request.files:
+            foto = request.files['foto']
+            if foto and allowed_file(foto.filename):
+
+                with get_db() as con:
+                    con.execute(
+                        "UPDATE items SET title = ?, description = ?, photo = ?, price = ? WHERE id = ?", 
+                        (titol, desc, foto.filename, preu, product_id)
+                    )
+
+        # https://en.wikipedia.org/wiki/Post/Redirect/Get
+        return redirect(url_for('items_update', product = product_id))
+
+
+
 if __name__ == 'main':
     app.run(debug = True)   
