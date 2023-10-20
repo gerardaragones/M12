@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UPDATE</title>
+</head>
+
+<body>
+   <h3>Producte {{ product['id'] }}</h3>
+
+   <form action="/products/update/{{ product['id'] }}" method = "POST">
+      <p><label>Titol: <input type = "text" name = "titol" value = "{{ product['title'] }}"/></label></p>
+      <p><label>Descripció: <input type = "number" name = "unitats" value = "{{ product['description'] }}"/></label></p>
+      <p><label>Foto: <input type = "text" name = "foto" value = "{{ product['photo'] }}"/></label></p>
+      <p><label>Preu: <input type = "text" name = "preu" value = "{{ product['price'] }}"/></label></p>    
+      <p><input type = "submit" value = "MODIFICAR" /></p>
+   </form>
+   <a href="/items/list">&#x3c;&#x3c; Tornar al llistat d'items</a>
+</body>
+
+</html>
